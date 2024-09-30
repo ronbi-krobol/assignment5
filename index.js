@@ -171,14 +171,22 @@ document.getElementById("donate-now3").addEventListener('click', function (event
 document.getElementById('donation-button').addEventListener('click', function () {
     document.getElementById('donation-details').classList.remove('hidden')
     document.getElementById('history-details').classList.add('hidden')
+    document.getElementById('history-button').style.backgroundColor = '';
+    document.getElementById('donation-button').style.backgroundColor = 'green'
 
 })
 
 document.getElementById('history-button').addEventListener('click', function () {
 
+   
+    document.getElementById('history-button').style.backgroundColor = 'green';
     document.getElementById('donation-details').classList.add('hidden')
     document.getElementById('history-details').classList.remove('hidden')
+    document.getElementById('donation-button').style.backgroundColor = '';
 })
+
+
+
 
 
 
