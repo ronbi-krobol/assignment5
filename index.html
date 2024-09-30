@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Responsive Donation Page</title>
     <link href="https://cdn.jsdelivr.net/npm/daisyui@4.12.10/dist/full.min.css" rel="stylesheet" type="text/css" />
     <script src="https://cdn.tailwindcss.com"></script>
 
@@ -12,184 +12,141 @@
         .donation-message {
             color: blue;
             border: 2px solid gray;
-            width: 1000px;
-            height: 100px;
+            width: 100%;
+            max-width: 1000px;
+            height: auto;
             font-size: 16px;
             font-weight: bold;
             margin: 10px 0;
             background-color: lightyellow;
             padding: 10px;
-            /* Optional: Add padding for better appearance */
         }
     </style>
 </head>
 
 <body>
 
-    <section class="mr-[120px] ml-[120px] pl-20 pr-16">
+    <section class="px-4 md:px-12 lg:px-[120px] py-4">
         <nav class="">
             <div class="navbar bg-base-100">
                 <div class="navbar-start">
-                    <div class="dropdown">
-                        <div tabindex="0" role="button" class="btn btn-ghost lg:hidden">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24"
-                                stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                    d="M4 6h16M4 12h8m-8 6h16" />
-                            </svg>
-                        </div>
-                        <ul tabindex="0"
-                            class="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow">
-                            <li><a>Item 1</a></li>
-                        </ul>
-                    </div>
-                    <a id="blog-link" href="/blog.html" class="btn btn-ghost text-xl">BLOG</a>
+                    
+                    <a href="/blog.html" class="btn btn-ghost text-xl">BLOG</a>
                 </div>
-                <div class="navbar-center hidden lg:flex">
+                <div class="navbar-center  lg:flex">
                     <ul class="menu menu-horizontal px-1">
-                        <li><a href="/index.html"> <span><img class="h-8 w-8 mr-4" src="/images/logo.png" alt=""></span>Donate
+                        <li><a href="/index.html"><span><img class="h-8 w-8 mr-4" src="/images/logo.png" alt=""></span>Donate
                                 Bangladesh</a></li>
                     </ul>
                 </div>
                 <div class="navbar-end flex gap-4">
                     <img src="/images/coin.png" alt="">
-                    <h3 id="account-balance"> 5500</h3>
-                    <h3> BDT</h3>
+                    <h3 class="font-bold" id="account-balance">10000</h3>
+                    <h3 class="font-bold">BDT</h3>
                 </div>
             </div>
         </nav>
     </section>
 
-    <section class="m-8">
+    <section class="m-4 md:m-8">
         <div class="flex gap-4 justify-center">
-           
-
             <button id="donation-button" class="btn">Donation</button>
-
-            <button id="history-button" class="btn ">History</button>
-
-            
-
-            
-
+            <button id="history-button" class="btn">History</button>
         </div>
     </section>
 
     <section id="donation-details">
 
-        <section class="m-8">
-            <div class="flex justify-between">
-                <div class="w-1/2 h-[380px]">
-                    <img class="h-full w-[700px] pl-[240px]" src="/images/noakhali.png" alt="">
-
+        <section class="m-4 md:m-8">
+            <div class="flex flex-col lg:flex-row justify-between">
+                <div class="w-full lg:w-1/2 h-[380px]">
+                    <img class="h-full w-full md:w-[700px] pl-0 md:pl-[100px] lg:pl-[240px]" src="/images/noakhali.png" alt="">
                 </div>
-                <div class="flex flex-col w-1/2 h-[380px] justify-between pr-[200px] gap-2">
+                <div class="flex flex-col w-full lg:w-1/2 h-auto justify-between pr-0 md:pr-[50px] lg:pr-[200px] gap-4">
                     <div class="flex">
                         <img class="pr-2" src="/images/coin.png" alt="">
-                        <h3 id="donation1" class="pr-2">500</h3>
+                        <h3 id="donation1" class="pr-2">0</h3>
                         <h3>BDT</h3>
                     </div>
-                    <h2 class="text-xl">Donate for Flood at Noakhali, Bangladesh</h2>
+                    <h2 class="text-xl font-bold">Donate for Flood at Noakhali, Bangladesh</h2>
                     <p class="text-justify">The recent floods in Noakhali have caused significant damage to homes
-                        infrastructure. Your donation
-                        will help provide essential supplies and to those affected by this disaster. Every contribution,
-                        big
-                        or small, makes difference. Please join us in supporting the relief efforts and making a
-                        positive
-                        impact on the lives of those in need.
+                        infrastructure. Your donation will help provide essential supplies and to those affected by this disaster.
+                        Every contribution, big or small, makes a difference. Please join us in supporting the relief efforts and making a positive impact.
                     </p>
-                    <input id="addMoney1" class="h-12 border-2" type="value" name=""
-                        placeholder="Write Donation Amount">
-
-
+                    <input id="addMoney1" class="h-12 border-2 w-full pl-4 rounded-md" type="value" placeholder="Write Donation Amount">
                     <button id="donate-now" class="btn btn-warning">Donate Now</button>
-
-                    <!-- Modal Structure -->
-                    <dialog id="my_modal_1" class="modal">
-                        <div class="modal-box flex flex-col justify-center items-center gap-4">
-                            <h1 class="text-[28px] text-center font-bold">Congrates</h1>
-                            <img class="w-12 h-12" src="/images/coin.png" alt="">
-                            <p id="modal-message" class="text-[20px] text-center font-bold"></p>
-                            <div class="modal-action">
-                                <form method="dialog">
-                                    <!-- if there is a button in form, it will close the modal -->
-                                    <button class="btn btn-outline btn-primary">Close</button>
-                                </form>
-                            </div>
-                        </div>
-                    </dialog>
-
                 </div>
             </div>
         </section>
 
-        <section class="m-8">
-            <div class="flex justify-between">
-                <div class="w-1/2 h-[380px]">
-                    <img class="h-full pl-[240px] w-[700px]" src="/images/feni.png" alt="">
-
+        <section class="m-4 md:m-8">
+            <div class="flex flex-col lg:flex-row justify-between">
+                <div class="w-full lg:w-1/2 h-[380px]">
+                    <img class="h-full w-full md:w-[700px] pl-0 md:pl-[100px] lg:pl-[240px]" src="/images/feni.png" alt="">
                 </div>
-                <div class="flex flex-col w-1/2 h-[380px] justify-between pr-[200px] gap-2">
+                <div class="flex flex-col w-full lg:w-1/2 h-auto justify-between pr-0 md:pr-[50px] lg:pr-[200px] gap-4">
                     <div class="flex">
                         <img class="pr-2" src="/images/coin.png" alt="">
-                        <h3 id="donation2" class="pr-2">600</h3>
+                        <h3 id="donation2" class="pr-2">0</h3>
                         <h3>BDT</h3>
                     </div>
-                    <h2 class="text-xl">Donate for Flood Relief in Feni,Bangladesh</h2>
-                    <p class="text-justify">The recent floods in Feni have devastated local communities, leading to
-                        severe
+                    <h2 class="text-xl font-bold">Donate for Flood Relief in Feni, Bangladesh</h2>
+                    <p class="text-justify">The recent floods in Feni have devastated local communities, leading to severe
                         disruption and loss. Your generous donation will help provide immediate aid, including food,
-                        clean
-                        water, and medical supplies, to those affected by this calamity. Together, we can offer crucial
-                        support and help rebuild lives in the aftermath of this disaster. Every contribution counts
-                        towards
-                        making a real difference. Please consider donating today to assist those in urgent need.
+                        clean water, and medical supplies, to those affected by this calamity. Together, we can offer crucial
+                        support and help rebuild lives in the aftermath of this disaster.
                     </p>
-                    <input id="addMoney2" class="h-12 border-2" type="text" name="" placeholder="Write Donation Amount">
+                    <input id="addMoney2" class="h-12 border-2 w-full pl-4 rounded-md" type="text" placeholder="Write Donation Amount">
                     <button id="donate-now2" class="btn btn-warning">Donate Now</button>
-
                 </div>
             </div>
         </section>
 
-        <section class="m-8 mb-16">
-            <div class="flex justify-between">
-                <div class="w-1/2 h-[380px]">
-                    <img class="h-full pl-[240px] w-[700px]" src="/images/quota-protest.png" alt="">
-
+        <section class="m-4 md:m-8 mb-16">
+            <div class="flex flex-col lg:flex-row justify-between">
+                <div class="w-full lg:w-1/2 h-[380px]">
+                    <img class="h-full w-full md:w-[700px] pl-0 md:pl-[100px] lg:pl-[240px]" src="/images/quota-protest.png" alt="">
                 </div>
-                <div class="flex flex-col w-1/2 h-[380px] justify-between pr-[200px] gap-2">
+                <div class="flex flex-col w-full lg:w-1/2 h-auto justify-between pr-0 md:pr-[50px] lg:pr-[200px] gap-4">
                     <div class="flex">
                         <img class="pr-2" src="/images/coin.png" alt="">
-                        <h3 id="donation3" class="pr-2">600</h3>
+                        <h3 id="donation3" class="pr-2">0</h3>
                         <h3>BDT</h3>
                     </div>
-                    <h2 class="text-xl">Aid for Injured in the Quota Movement</h2>
+                    <h2 class="text-xl font-bold">Aid for Injured in the Quota Movement</h2>
                     <p class="text-justify">The recent Quota movement has resulted in numerous injuries and significant
                         hardship for many individuals. Your support is crucial in providing medical assistance,
-                        rehabilitation, and necessary supplies to those affected. By contributing, you help ensure that
-                        injured individuals receive the care and support they need during this challenging time. Every
-                        donation plays a vital role in alleviating their suffering and aiding in their recovery. Please
-                        consider making a donation to support these brave individuals in their time of need.
+                        rehabilitation, and necessary supplies to those affected.
                     </p>
-                    <input class="h-12 border-2" type="text" name="" placeholder="Write Donation Amount" id="addMoney3">
+                    <input id="addMoney3" class="h-12 border-2 w-full pl-4 rounded-md" type="text" placeholder="Write Donation Amount">
                     <button id="donate-now3" class="btn btn-warning">Donate Now</button>
-
                 </div>
             </div>
         </section>
 
     </section>
 
-    <section id="history-details">
+    <section id="history-details" class="hidden">
         <div class="flex flex-col items-center" id="donation-history-details">
-
-
-
+            
         </div>
     </section>
 
 
+    <dialog id="my_modal_1" class="modal">
+        <div class="modal-box w-full sm:w-11/12 md:w-3/4 lg:w-1/2 xl:w-1/3">
+            <div class="flex flex-col justify-center items-center gap-4">
+                <h1 class="text-[28px] text-center font-bold">Congrats!</h1>
+                <img class="w-12 h-12" src="/images/coin.png" alt="">
+                <p id="modal-message" class="text-[20px] text-center font-bold"></p>
+                <div class="modal-action">
+                    <form method="dialog">
+                        <button class="btn btn-outline btn-primary">Close</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </dialog>
 
     <script src="/index.js"></script>
 
