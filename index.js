@@ -11,6 +11,12 @@ document.getElementById("donate-now").addEventListener('click', function (event)
     const moneyInput = document.getElementById('addMoney1').value
     const moneyInputNumber = parseFloat(moneyInput)
 
+    if (isNaN(moneyInputNumber) || moneyInputNumber <= 0) {
+        alert('Please enter a valid donation amount');
+        return;
+    }
+
+
     if (moneyInputNumber <= balanceNumber) {
         const p = document.createElement('p')
         const date = new Date();
@@ -34,12 +40,14 @@ document.getElementById("donate-now").addEventListener('click', function (event)
 
         document.getElementById("account-balance").innerText = newBalance
 
-    }
-
+        const modalMessage = document.getElementById('modal-message');
+        modalMessage.innerText = `You have donated ${moneyInputNumber} Taka for Humankind`;
+        document.getElementById('my_modal_1').showModal();
+    } 
+    
     else {
-        alert('You Dont Have Money To Donate')
+        alert('You dont have enough money to donate');
     }
-
 
 
 })
@@ -54,6 +62,11 @@ document.getElementById("donate-now2").addEventListener('click', function (event
 
     const moneyInput2 = document.getElementById('addMoney2').value
     const moneyInputNumber2 = parseFloat(moneyInput2)
+
+    if (isNaN(moneyInputNumber2) || moneyInputNumber2 <= 0) {
+        alert('Please enter a valid donation amount');
+        return;
+    }
 
     if (moneyInputNumber2 <= balanceNumber2) {
         const p = document.createElement('p')
@@ -77,6 +90,10 @@ document.getElementById("donate-now2").addEventListener('click', function (event
 
         document.getElementById("account-balance").innerText = newBalance2
 
+        const modalMessage = document.getElementById('modal-message');
+        modalMessage.innerText = `You have donated ${moneyInputNumber2} Taka for Humankind`;
+        document.getElementById('my_modal_1').showModal();
+
     }
 
     else {
@@ -98,30 +115,40 @@ document.getElementById("donate-now3").addEventListener('click', function (event
     const moneyInput3 = document.getElementById('addMoney3').value
     const moneyInputNumber3 = parseFloat(moneyInput3)
 
+    if (isNaN(moneyInputNumber3) || moneyInputNumber3 <= 0) {
+        alert('Please enter a valid donation amount');
+        return;
+    }
+
+
     if (moneyInputNumber3 <= balanceNumber3) {
 
-    const p = document.createElement('p')
-    const date = new Date();
+        const p = document.createElement('p')
+        const date = new Date();
 
-    p.innerText = `${moneyInputNumber3} Taka is donated for Aid for Injured in the Quota Movement
+        p.innerText = `${moneyInputNumber3} Taka is donated for Aid for Injured in the Quota Movement
     
     Date:  ${date}`
 
-    p.classList.add('donation-message')
+        p.classList.add('donation-message')
 
-    document.getElementById("donation-history-details").appendChild(p)
+        document.getElementById("donation-history-details").appendChild(p)
 
-    const donationQuota = document.getElementById("donation3").innerText
-    const donationQuotaNumber = parseFloat(donationQuota)
+        const donationQuota = document.getElementById("donation3").innerText
+        const donationQuotaNumber = parseFloat(donationQuota)
 
-    const newMoney3 = donationQuotaNumber + moneyInputNumber3
-    document.getElementById("donation3").innerText = newMoney3
+        const newMoney3 = donationQuotaNumber + moneyInputNumber3
+        document.getElementById("donation3").innerText = newMoney3
 
-    
 
-    const newBalance3 = balanceNumber3 - moneyInputNumber3
 
-    document.getElementById("account-balance").innerText = newBalance3
+        const newBalance3 = balanceNumber3 - moneyInputNumber3
+
+        document.getElementById("account-balance").innerText = newBalance3
+
+        const modalMessage = document.getElementById('modal-message');
+        modalMessage.innerText = `You have donated ${moneyInputNumber3} Taka for Humankind`;
+        document.getElementById('my_modal_1').showModal();
     }
 
     else {
@@ -148,7 +175,7 @@ document.getElementById('donation-button').addEventListener('click', function ()
 })
 
 document.getElementById('history-button').addEventListener('click', function () {
-   
+
     document.getElementById('donation-details').classList.add('hidden')
     document.getElementById('history-details').classList.remove('hidden')
 })
